@@ -1,219 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Engineering Assurance</title>
   <style>
-    body {
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      color: #1f2937;
-      background: #f4f7fb;
-      line-height: 1.6;
-    }
-
-    header {
-      background: linear-gradient(135deg, #061a33, #0b3a66);
-      color: white;
-      padding: 70px 25px;
-      text-align: center;
-    }
-
-    header h1 {
-      font-size: 46px;
-      margin: 0 0 10px;
-      letter-spacing: 1px;
-    }
-
-    header p {
-      max-width: 850px;
-      margin: 0 auto;
-      font-size: 20px;
-    }
-
-    nav {
-      background: #ffffff;
-      padding: 15px;
-      text-align: center;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-      position: sticky;
-      top: 0;
-    }
-
-    nav a {
-      margin: 0 15px;
-      color: #0b3a66;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    section {
-      max-width: 1100px;
-      margin: auto;
-      padding: 45px 25px;
-    }
-
-    h2 {
-      color: #0b3a66;
-      font-size: 30px;
-      margin-bottom: 20px;
-    }
-
-    .intro {
-      background: white;
-      border-left: 6px solid #0b3a66;
-      padding: 25px;
-      border-radius: 8px;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 22px;
-    }
-
-    .card {
-      background: white;
-      padding: 24px;
-      border-radius: 10px;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
-      border-top: 5px solid #0b3a66;
-    }
-
-    .card h3 {
-      margin-top: 0;
-      color: #0b3a66;
-    }
-
-    .highlight {
-      background: #e8f1fb;
-      padding: 25px;
-      border-radius: 10px;
-      margin-top: 20px;
-    }
-
-    ul {
-      padding-left: 20px;
-    }
-
-    .contact {
-      background: #061a33;
-      color: white;
-      text-align: center;
-      padding: 45px 25px;
-    }
-
-    .contact h2 {
-      color: white;
-    }
-
-    .contact a {
-      color: #9bd1ff;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    footer {
-      text-align: center;
-      padding: 20px;
-      background: #020d1a;
-      color: #cbd5e1;
-      font-size: 14px;
-    }
+    body{margin:0;font-family:Arial,Helvetica,sans-serif;color:#1f2937;background:#f4f7fb;line-height:1.6}
+    header{background:linear-gradient(135deg,#061a33,#0b3a66);color:white;padding:70px 25px;text-align:center}
+    header h1{font-size:48px;margin:0}
+    header p{font-size:21px;max-width:900px;margin:15px auto}
+    nav{background:white;text-align:center;padding:14px;box-shadow:0 2px 8px rgba(0,0,0,.08);position:sticky;top:0;z-index:10}
+    nav a{margin:0 12px;color:#0b3a66;text-decoration:none;font-weight:bold}
+    section{max-width:1100px;margin:auto;padding:45px 25px}
+    h2{color:#0b3a66;font-size:30px}
+    .intro,.highlight,.card{background:white;border-radius:10px;box-shadow:0 2px 12px rgba(0,0,0,.08);padding:24px}
+    .intro{border-left:6px solid #0b3a66}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:22px}
+    .card{border-top:5px solid #0b3a66}
+    .card h3{color:#0b3a66;margin-top:0}
+    .button{display:inline-block;background:#0b3a66;color:white;padding:12px 20px;border-radius:6px;text-decoration:none;margin:8px;font-weight:bold}
+    .prices table{width:100%;border-collapse:collapse;background:white}
+    .prices th,.prices td{border:1px solid #ddd;padding:12px;text-align:left}
+    .prices th{background:#0b3a66;color:white}
+    .contact{background:#061a33;color:white;text-align:center}
+    .contact h2{color:white}
+    .contact a{color:#9bd1ff;font-weight:bold;text-decoration:none}
+    footer{text-align:center;background:#020d1a;color:#cbd5e1;padding:20px;font-size:14px}
   </style>
 </head>
-
 <body>
 
 <header>
   <h1>Engineering Assurance</h1>
-  <p>Specialist associate consultancy support for rail and light rail organisations in standards, engineering governance, competency assurance, reliability and operational learning.</p>
+  <p>Specialist associate consultancy support for rail and light rail organisations in standards, engineering governance, competence, reliability, quality and operational learning.</p>
+  <a class="button" href="#contact">Contact</a>
+  <a class="button" href="#services">Services</a>
 </header>
 
 <nav>
   <a href="#about">About</a>
   <a href="#services">Services</a>
-  <a href="#experience">Experience</a>
+  <a href="#credentials">Credentials</a>
+  <a href="#pricing">Pricing</a>
   <a href="#contact">Contact</a>
 </nav>
 
 <section id="about">
   <h2>About</h2>
   <div class="intro">
-    <p>
-      Engineering Assurance provides specialist associate consultancy support across rail and light rail environments, with a focus on practical, evidence-led improvement.
-    </p>
-    <p>
-      Areas of support include engineering governance, standards development, competency management, reliability improvement, asset performance, operational learning and safety assurance.
-    </p>
+    <p>Engineering Assurance provides practical, evidence-led associate consultancy support across rail and light rail environments.</p>
+    <p>Support is built on over 20 years' experience across operational maintenance, engineering leadership, standards development, competency management, reliability improvement, safety governance and continuous improvement within safety-critical environments.</p>
   </div>
 </section>
 
 <section id="services">
   <h2>Services</h2>
   <div class="grid">
-    <div class="card">
-      <h3>Standards & Governance</h3>
-      <p>Support with standards development, implementation, engineering governance, compliance reviews and assurance processes.</p>
-    </div>
-
-    <div class="card">
-      <h3>Competency Management</h3>
-      <p>Competency framework development, competence assurance reviews, gap analysis, assessor support and governance arrangements.</p>
-    </div>
-
-    <div class="card">
-      <h3>Reliability Engineering</h3>
-      <p>Reliability improvement, Pareto analysis, root cause investigation, FMEA, fault tree analysis, Weibull analysis and asset performance reviews.</p>
-    </div>
-
-    <div class="card">
-      <h3>Operational Learning</h3>
-      <p>Lessons learned reviews, incident learning, technical research and translating operational learning into practical improvements.</p>
-    </div>
+    <div class="card"><h3>Standards & Governance</h3><p>Standards development, technical guidance, governance reviews, gap analysis, technical authoring and compliance support.</p></div>
+    <div class="card"><h3>Competency Management</h3><p>Competency frameworks, competence assurance, skills gap analysis, assessment systems, governance and assurance reviews.</p></div>
+    <div class="card"><h3>Reliability Engineering</h3><p>Pareto analysis, root cause analysis, 5 Whys, FMEA, Fault Tree Analysis, Weibull analysis, MDBF improvement and maintenance strategy reviews.</p></div>
+    <div class="card"><h3>Operational Learning</h3><p>Incident learning, lessons learned reviews, technical research and translating operational learning into practical improvement.</p></div>
+    <div class="card"><h3>Quality Management</h3><p>ISO 9001 implementation support, QMS development, process mapping, internal audit support, document control and management review preparation.</p></div>
+    <div class="card"><h3>Safety & Risk</h3><p>Risk assessments, engineering risk reviews, hazard identification, safety governance, technical assurance and engineering change support.</p></div>
+    <div class="card"><h3>Management Development</h3><p>Engineering leadership support, management development, team improvement, governance development and performance management support.</p></div>
   </div>
 </section>
 
-<section id="experience">
-  <h2>Experience & Strengths</h2>
+<section id="credentials">
+  <h2>Credentials & Experience</h2>
   <div class="highlight">
     <ul>
-      <li>Over 20 years' experience across rail and light rail engineering environments.</li>
-      <li>Experience in operational maintenance, engineering leadership, reliability improvement and safety-critical assurance.</li>
-      <li>Development and implementation of competency management systems.</li>
-      <li>Standards and guidance development involving operators, manufacturers, regulators and industry stakeholders.</li>
-      <li>Participation in Railway Applications Mirror Groups.</li>
-      <li>Representation within selected BSI, CEN and ISO standards working groups.</li>
-      <li>Experience contributing to significant improvements in fleet Mean Distance Between Failures performance.</li>
+      <li>Chartered Manager – CMgr MCMI</li>
+      <li>BA (Hons) Management Practice</li>
+      <li>ISO 9001 implementation and auditing training</li>
+      <li>Over 20 years' rail and light rail engineering experience</li>
+      <li>Experience developing competency management systems in safety-critical environments</li>
+      <li>Experience supporting national standards and guidance development</li>
+      <li>Participation in Railway Applications Mirror Groups</li>
+      <li>Representation within selected BSI, CEN and ISO standards working groups</li>
+      <li>Contributed to a 50% improvement in fleet Mean Distance Between Failures performance in a previous role</li>
     </ul>
   </div>
 </section>
 
 <section>
-  <h2>Core Focus Areas</h2>
+  <h2>Why Choose Engineering Assurance?</h2>
   <div class="grid">
-    <div class="card">
-      <h3>Engineering Governance</h3>
-      <p>Helping organisations strengthen technical governance, assurance arrangements and decision-making processes.</p>
-    </div>
-
-    <div class="card">
-      <h3>Competence Assurance</h3>
-      <p>Supporting practical systems that demonstrate people can perform safety-critical tasks safely and effectively.</p>
-    </div>
-
-    <div class="card">
-      <h3>Reliability Improvement</h3>
-      <p>Using data-led approaches to identify recurring failures, understand root causes and support sustainable improvement.</p>
-    </div>
-
-    <div class="card">
-      <h3>Standards Development</h3>
-      <p>Supporting the creation, review and implementation of clear, practical and proportionate technical standards and guidance.</p>
-    </div>
+    <div class="card"><h3>Practical Experience</h3><p>Support is grounded in real operational, engineering and safety-critical experience.</p></div>
+    <div class="card"><h3>Evidence-Led</h3><p>Advice is based on data, standards, assurance principles and practical application.</p></div>
+    <div class="card"><h3>Standards Focused</h3><p>Experience across standards development, governance and international standards engagement.</p></div>
+    <div class="card"><h3>Improvement Driven</h3><p>Focused on practical outputs that improve reliability, competence, assurance and performance.</p></div>
   </div>
+</section>
+
+<section id="pricing" class="prices">
+  <h2>Indicative Consultancy Rates</h2>
+  <p>Rates are indicative and may vary depending on scope, location, preparation time and project requirements.</p>
+  <table>
+    <tr><th>Service</th><th>Indicative Rate</th></tr>
+    <tr><td>Initial discussion</td><td>Free</td></tr>
+    <tr><td>Half-day consultancy</td><td>£350–£450</td></tr>
+    <tr><td>Full-day consultancy</td><td>£650–£850</td></tr>
+    <tr><td>Technical document review</td><td>From £300</td></tr>
+    <tr><td>Workshop / facilitation</td><td>From £700 per day</td></tr>
+    <tr><td>Standards, competence or ISO 9001 support</td><td>Quoted by scope</td></tr>
+  </table>
 </section>
 
 <section id="contact" class="contact">
@@ -223,7 +114,7 @@
 </section>
 
 <footer>
-  Engineering Assurance | Rail Engineering, Standards, Competence, Reliability & Governance
+  Engineering Assurance | Rail Engineering • Standards • Competence • Reliability • Quality • Governance
 </footer>
 
 </body>
