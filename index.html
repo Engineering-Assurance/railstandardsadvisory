@@ -1,28 +1,243 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Engineering Assurance</title>
+
   <style>
-    body{margin:0;font-family:Arial,Helvetica,sans-serif;color:#1f2937;background:#f4f7fb;line-height:1.6}
-    header{background:linear-gradient(135deg,#061a33,#0b3a66);color:white;padding:70px 25px;text-align:center}
-    header h1{font-size:48px;margin:0}
-    header p{font-size:21px;max-width:900px;margin:15px auto}
-    nav{background:white;text-align:center;padding:14px;box-shadow:0 2px 8px rgba(0,0,0,.08);position:sticky;top:0;z-index:10}
-    nav a{margin:0 12px;color:#0b3a66;text-decoration:none;font-weight:bold}
-    section{max-width:1100px;margin:auto;padding:45px 25px}
-    h2{color:#0b3a66;font-size:30px}
-    .intro,.highlight,.card{background:white;border-radius:10px;box-shadow:0 2px 12px rgba(0,0,0,.08);padding:24px}
-    .intro{border-left:6px solid #0b3a66}
-    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:22px}
-    .card{border-top:5px solid #0b3a66}
-    .card h3{color:#0b3a66;margin-top:0}
-    .button{display:inline-block;background:#0b3a66;color:white;padding:12px 20px;border-radius:6px;text-decoration:none;margin:8px;font-weight:bold}
-    .contact{background:#061a33;color:white;text-align:center}
-    .contact h2{color:white}
-    .contact a{color:#9bd1ff;font-weight:bold;text-decoration:none}
-    footer{text-align:center;background:#020d1a;color:#cbd5e1;padding:20px;font-size:14px}
+    :root {
+      --navy: #061a33;
+      --blue: #0b3a66;
+      --light-blue: #e8f1fb;
+      --gold: #d6a84f;
+      --text: #1f2937;
+      --muted: #64748b;
+      --white: #ffffff;
+      --bg: #f4f7fb;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.6;
+    }
+
+    header {
+      background:
+        linear-gradient(rgba(6,26,51,0.88), rgba(6,26,51,0.88)),
+        linear-gradient(135deg, #061a33, #0b3a66);
+      color: white;
+      padding: 90px 25px;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 54px;
+      margin: 0;
+      letter-spacing: 1px;
+    }
+
+    header h2 {
+      color: var(--gold);
+      font-size: 24px;
+      margin: 12px 0;
+      font-weight: normal;
+    }
+
+    header p {
+      max-width: 900px;
+      margin: 20px auto;
+      font-size: 20px;
+    }
+
+    nav {
+      background: white;
+      text-align: center;
+      padding: 14px;
+      box-shadow: 0 2px 10px rgba(0,0,0,.08);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    nav a {
+      margin: 0 12px;
+      color: var(--blue);
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 15px;
+    }
+
+    section {
+      max-width: 1120px;
+      margin: auto;
+      padding: 55px 25px;
+    }
+
+    h2 {
+      color: var(--blue);
+      font-size: 32px;
+      margin-bottom: 20px;
+    }
+
+    .button {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--navy);
+      padding: 13px 24px;
+      border-radius: 999px;
+      text-decoration: none;
+      margin: 8px;
+      font-weight: bold;
+    }
+
+    .button.secondary {
+      background: transparent;
+      border: 2px solid white;
+      color: white;
+    }
+
+    .intro, .highlight, .card {
+      background: white;
+      border-radius: 14px;
+      box-shadow: 0 4px 18px rgba(0,0,0,.08);
+      padding: 26px;
+    }
+
+    .intro {
+      border-left: 7px solid var(--gold);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(245px, 1fr));
+      gap: 24px;
+    }
+
+    .card {
+      border-top: 6px solid var(--blue);
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(0,0,0,.12);
+    }
+
+    .card h3 {
+      color: var(--blue);
+      margin-top: 0;
+      font-size: 22px;
+    }
+
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    .badge {
+      background: var(--light-blue);
+      color: var(--blue);
+      padding: 10px 14px;
+      border-radius: 999px;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 22px;
+      margin-top: 25px;
+    }
+
+    .stat {
+      background: var(--navy);
+      color: white;
+      padding: 24px;
+      border-radius: 14px;
+      text-align: center;
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 34px;
+      color: var(--gold);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 18px rgba(0,0,0,.08);
+    }
+
+    th {
+      background: var(--blue);
+      color: white;
+      padding: 14px;
+      text-align: left;
+    }
+
+    td {
+      padding: 14px;
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    tr:nth-child(even) {
+      background: #f8fafc;
+    }
+
+    .contact {
+      background: var(--navy);
+      color: white;
+      text-align: center;
+      max-width: none;
+    }
+
+    .contact h2 {
+      color: white;
+    }
+
+    .contact a {
+      color: #9bd1ff;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    footer {
+      text-align: center;
+      background: #020d1a;
+      color: #cbd5e1;
+      padding: 22px;
+      font-size: 14px;
+    }
+
+    @media (max-width: 700px) {
+      header h1 {
+        font-size: 38px;
+      }
+
+      header p {
+        font-size: 17px;
+      }
+
+      nav a {
+        display: inline-block;
+        margin: 6px 8px;
+      }
+    }
   </style>
 </head>
 
@@ -30,157 +245,195 @@
 
 <header>
   <h1>Engineering Assurance</h1>
-  <p>Engineering, quality and governance consultancy support for safety-critical and engineering-led organisations, with specialist expertise in rail and light rail.</p>
-  <a class="button" href="#contact">Contact</a>
-  <a class="button" href="#services">Services</a>
+  <h2>Standards • Governance • Competence • Reliability • Quality</h2>
+  <p>
+    Engineering, quality and governance consultancy support for safety-critical and engineering-led organisations, with specialist expertise in rail and light rail.
+  </p>
+  <a class="button" href="#contact">Get in Touch</a>
+  <a class="button secondary" href="#services">View Services</a>
 </header>
 
 <nav>
   <a href="#about">About</a>
   <a href="#services">Services</a>
   <a href="#capability">Capability</a>
-  <a href="#quotation">Quotation</a>
+  <a href="#approach">Approach</a>
+  <a href="#pricing">Rates</a>
   <a href="#contact">Contact</a>
 </nav>
 
 <section id="about">
   <h2>About Engineering Assurance</h2>
   <div class="intro">
-    <p>Engineering Assurance provides specialist associate consultancy support to organisations operating in safety-critical and engineering-led environments.</p>
-    <p>While our core expertise lies within the rail and light rail sectors, the principles of good engineering governance, quality management, competency assurance, reliability improvement and operational learning are applicable across many industries.</p>
-    <p>Our approach combines practical operational experience with recognised engineering, quality and management principles to deliver evidence-based, proportionate and sustainable improvements tailored to each organisation.</p>
+    <p>
+      Engineering Assurance provides specialist associate consultancy support to organisations operating in safety-critical and engineering-led environments.
+    </p>
+    <p>
+      While core expertise lies within the rail and light rail sectors, the principles of good engineering governance, quality management, competency assurance, reliability improvement and operational learning are applicable across many industries.
+    </p>
+    <p>
+      The approach combines practical operational experience with recognised engineering, quality and management principles to deliver evidence-based, proportionate and sustainable improvements tailored to each organisation.
+    </p>
+
+    <div class="badge-row">
+      <span class="badge">Engineering Governance</span>
+      <span class="badge">ISO 9001 Support</span>
+      <span class="badge">Competence Assurance</span>
+      <span class="badge">Reliability Engineering</span>
+      <span class="badge">Risk Assessment</span>
+      <span class="badge">Operational Learning</span>
+    </div>
   </div>
 </section>
 
 <section id="services">
   <h2>Services</h2>
+
   <div class="grid">
-    <div class="card"><h3>Standards & Governance</h3><p>Standards development, technical guidance, governance reviews, gap analysis, technical authoring and compliance support.</p></div>
-    <div class="card"><h3>Competency Management</h3><p>Competency frameworks, competence assurance, skills gap analysis, assessment systems, governance and assurance reviews.</p></div>
-    <div class="card"><h3>Reliability Engineering</h3><p>Pareto analysis, root cause analysis, 5 Whys, FMEA, Fault Tree Analysis, Weibull analysis, MDBF improvement and maintenance strategy reviews.</p></div>
-    <div class="card"><h3>Operational Learning</h3><p>Incident learning, lessons learned reviews, technical research and translating operational learning into practical improvement.</p></div>
-    <div class="card"><h3>Quality Management</h3><p>ISO 9001 implementation support, QMS development, process mapping, internal audit support, document control and management review preparation.</p></div>
-    <div class="card"><h3>Safety & Risk</h3><p>Risk assessments, engineering risk reviews, hazard identification, safety governance, technical assurance and engineering change support.</p></div>
-    <div class="card"><h3>Management Development</h3><p>Engineering leadership support, management development, team improvement, governance development and performance management support.</p></div>
+    <div class="card">
+      <h3>Standards & Governance</h3>
+      <p>Standards development, technical guidance, governance reviews, gap analysis, technical authoring and compliance support.</p>
+    </div>
+
+    <div class="card">
+      <h3>Competency Management</h3>
+      <p>Competency frameworks, competence assurance, skills gap analysis, assessment systems, governance and assurance reviews.</p>
+    </div>
+
+    <div class="card">
+      <h3>Reliability Engineering</h3>
+      <p>Pareto analysis, root cause analysis, 5 Whys, FMEA, Fault Tree Analysis, Weibull analysis, MDBF improvement and maintenance strategy reviews.</p>
+    </div>
+
+    <div class="card">
+      <h3>Operational Learning</h3>
+      <p>Incident learning, lessons learned reviews, technical research and translating operational learning into practical improvement.</p>
+    </div>
+
+    <div class="card">
+      <h3>Quality Management</h3>
+      <p>ISO 9001 implementation support, QMS development, process mapping, internal audit support, document control and management review preparation.</p>
+    </div>
+
+    <div class="card">
+      <h3>Safety & Risk</h3>
+      <p>Risk assessments, engineering risk reviews, hazard identification, safety governance, technical assurance and engineering change support.</p>
+    </div>
+
+    <div class="card">
+      <h3>Leadership & Development</h3>
+      <p>Engineering leadership support, management development, team improvement, governance development and performance management support.</p>
+    </div>
   </div>
 </section>
 
 <section id="capability">
   <h2>Why Engineering Assurance?</h2>
+
+  <div class="stats">
+    <div class="stat">
+      <strong>20+</strong>
+      Years of engineering and safety-critical experience
+    </div>
+
+    <div class="stat">
+      <strong>50%</strong>
+      Fleet MDBF improvement contributed to in a previous role
+    </div>
+
+    <div class="stat">
+      <strong>BSI</strong>
+      Engagement with selected CEN and ISO standards working groups
+    </div>
+  </div>
+
+  <br>
+
   <div class="grid">
     <div class="card">
       <h3>Evidence-Based Advice</h3>
-      <p>Providing practical recommendations supported by recognised engineering, quality and assurance principles.</p>
+      <p>Practical recommendations supported by recognised engineering, quality and assurance principles.</p>
     </div>
+
     <div class="card">
       <h3>Engineering Governance</h3>
-      <p>Supporting organisations in developing effective governance arrangements, engineering management systems and technical assurance processes.</p>
+      <p>Support in developing effective governance arrangements, engineering management systems and technical assurance processes.</p>
     </div>
+
     <div class="card">
       <h3>Competency Assurance</h3>
-      <p>Helping organisations develop practical competency management arrangements that support safety, compliance and operational performance.</p>
+      <p>Practical competency management arrangements that support safety, compliance and operational performance.</p>
     </div>
+
     <div class="card">
-      <h3>Reliability Improvement</h3>
-      <p>Applying structured reliability engineering techniques including Pareto analysis, FMEA, Fault Tree Analysis, Weibull analysis and root cause investigation.</p>
-    </div>
-    <div class="card">
-      <h3>Quality & Continuous Improvement</h3>
-      <p>Supporting quality management systems, ISO 9001 implementation, process improvement and organisational development.</p>
-    </div>
-    <div class="card">
-      <h3>Professional Engagement</h3>
-      <p>Experience working collaboratively with operators, manufacturers, regulators and industry stakeholders together with involvement in national and international standards activities.</p>
+      <h3>Quality & Improvement</h3>
+      <p>Support for quality management systems, ISO 9001 implementation, process improvement and organisational development.</p>
     </div>
   </div>
 </section>
 
-<section>
+<section id="approach">
   <h2>Professional Approach</h2>
+
   <div class="highlight">
-    <p>Every organisation faces different engineering, operational and governance challenges. Rather than offering generic solutions, Engineering Assurance works collaboratively with clients to understand the problem, identify practical opportunities for improvement and deliver proportionate, evidence-based recommendations.</p>
+    <p>
+      Every organisation faces different engineering, operational and governance challenges. Rather than offering generic solutions, Engineering Assurance works collaboratively with clients to understand the problem, identify practical opportunities for improvement and deliver proportionate, evidence-based recommendations.
+    </p>
+
     <ul>
-      <li>Engineering Governance</li>
-      <li>Standards Development</li>
-      <li>Competency Management</li>
-      <li>Reliability Engineering</li>
-      <li>Risk Assessment & Safety Assurance</li>
-      <li>Quality Management, including ISO 9001</li>
-      <li>Operational Learning</li>
-      <li>Engineering Leadership & Management Development</li>
+      <li>Understand the problem and operational context</li>
+      <li>Review evidence, standards, processes and current controls</li>
+      <li>Identify practical improvement opportunities</li>
+      <li>Support implementation through proportionate recommendations</li>
+      <li>Focus on sustainable improvement rather than unnecessary complexity</li>
     </ul>
   </div>
 </section>
 
-<section id="quotation">
+<section id="pricing">
+  <h2>Indicative Consultancy Rates</h2>
 
-<h2>Indicative Consultancy Rates</h2>
+  <p>
+    Rates are indicative and may vary depending on scope, complexity, preparation time, location and project requirements.
+  </p>
 
-<div class="highlight">
-
-<p>
-Every project is different, and fees will depend on the scope, complexity, preparation required and location. The rates below are intended as a guide.
-</p>
-
-<table style="width:100%;border-collapse:collapse;margin-top:20px;">
-
-<tr style="background:#0b3a66;color:white;">
-<th style="padding:12px;text-align:left;">Service</th>
-<th style="padding:12px;text-align:left;">Indicative Rate</th>
-</tr>
-
-<tr>
-<td style="padding:12px;border:1px solid #ddd;">Initial consultation (30 minutes)</td>
-<td style="padding:12px;border:1px solid #ddd;">Free</td>
-</tr>
-
-<tr>
-<td style="padding:12px;border:1px solid #ddd;">Half-day consultancy</td>
-<td style="padding:12px;border:1px solid #ddd;">£350–£450</td>
-</tr>
-
-<tr>
-<td style="padding:12px;border:1px solid #ddd;">Full-day consultancy</td>
-<td style="padding:12px;border:1px solid #ddd;">£650–£850</td>
-</tr>
-
-<tr>
-<td style="padding:12px;border:1px solid #ddd;">Technical document review</td>
-<td style="padding:12px;border:1px solid #ddd;">From £300</td>
-</tr>
-
-<tr>
-<td style="padding:12px;border:1px solid #ddd;">Standards, governance or ISO 9001 support</td>
-<td style="padding:12px;border:1px solid #ddd;">Quoted by scope</td>
-</tr>
-
-<tr>
-<td style="padding:12px;border:1px solid #ddd;">Competency framework development</td>
-<td style="padding:12px;border:1px solid #ddd;">Quoted by scope</td>
-</tr>
-
-<tr>
-<td style="padding:12px;border:1px solid #ddd;">Reliability engineering studies</td>
-<td style="padding:12px;border:1px solid #ddd;">Quoted by scope</td>
-</tr>
-
-<tr>
-<td style="padding:12px;border:1px solid #ddd;">Training or workshop facilitation</td>
-<td style="padding:12px;border:1px solid #ddd;">From £700 per day</td>
-</tr>
-
-</table>
-
-<p style="margin-top:20px;">
-Longer-term advisory support, retained consultancy arrangements and bespoke projects are available upon request.
-</p>
-
-</div>
-
+  <table>
+    <tr>
+      <th>Service</th>
+      <th>Indicative Rate</th>
+    </tr>
+    <tr>
+      <td>Initial consultation</td>
+      <td>Free</td>
+    </tr>
+    <tr>
+      <td>Half-day consultancy</td>
+      <td>£350–£450</td>
+    </tr>
+    <tr>
+      <td>Full-day consultancy</td>
+      <td>£650–£850</td>
+    </tr>
+    <tr>
+      <td>Technical document review</td>
+      <td>From £300</td>
+    </tr>
+    <tr>
+      <td>Workshop or facilitation</td>
+      <td>From £700 per day</td>
+    </tr>
+    <tr>
+      <td>Standards, competence, reliability or ISO 9001 support</td>
+      <td>Quoted by scope</td>
+    </tr>
+  </table>
 </section>
 
 <section id="contact" class="contact">
   <h2>Contact</h2>
+  <p>
+    For enquiries, availability or an initial discussion:
+  </p>
   <p>Email: <a href="mailto:mattandhaydon@outlook.com">mattandhaydon@outlook.com</a></p>
   <p>Phone: <a href="tel:+447795557749">07795 557749</a></p>
 </section>
