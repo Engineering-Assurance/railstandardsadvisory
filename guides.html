@@ -1,1 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <title>Professional Guides | Engineering Assurance</title>
+
+    <meta
+        name="description"
+        content="Practical engineering publications covering reliability, asset performance and engineering improvement."
+    >
+
+    <style>
+        :root {
+            --navy: #061a33;
+            --blue: #0b3a66;
+            --light-blue: #e8f1fb;
+            --gold: #d6a84f;
+            --text: #1f2937;
+            --muted: #64748b;
+            --white: #ffffff;
+            --background: #f4f7fb;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            color: var(--text);
+            background: var(--background);
+            line-height: 1.6;
+        }
+
+        header {
+            background: var(--navy);
+            color: var(--white);
+        }
+
+        .navigation {
+            max-width: 1180px;
+            margin: 0 auto;
+            padding: 18px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .site-name {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 1.15rem;
+            font-weight: 700;
+        }
+
+        .navigation-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .navigation-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .navigation-links a:hover {
+            color: var(--gold);
+        }
+
+        .hero {
+            background:
+                linear-gradient(rgba(6, 26, 51, 0.92), rgba(11, 58, 102, 0.90));
+            color: var(--white);
+            padding: 80px 24px;
+        }
+
+        .hero-content {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .eyebrow {
+            margin: 0 0 10px;
+            color: var(--gold);
+            font-size: 0.95rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .hero h1 {
+            margin: 0 0 18px;
+            max-width: 800px;
+            font-size: clamp(2.2rem, 5vw, 4rem);
+            line-height: 1.05;
+        }
+
+        .hero p {
+            max-width: 760px;
+            margin: 0;
+            font-size: 1.15rem;
+            color: #e5edf7;
+        }
+
+        main {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 60px 24px 80px;
+        }
+
+        .guide-card {
+            display: grid;
+            grid-template-columns: minmax(260px, 380px) 1fr;
+            gap: 54px;
+            align-items: start;
+            padding: 42px;
+            background: var(--white);
+            border: 1px solid #d9e1ea;
+            border-radius: 18px;
+            box-shadow: 0 14px 34px rgba(6, 26, 51, 0.10);
+        }
+
+        .guide-cover {
+            display: block;
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 12px 26px rgba(0, 0, 0, 0.18);
+        }
+
+        .guide-number {
+            margin: 0 0 8px;
+            color: #9a6c12;
+            font-size: 0.9rem;
+            font-weight: 700;
+            letter-spacing: 0.09em;
+            text-transform: uppercase;
+        }
+
+        .guide-title {
+            margin: 0 0 10px;
+            color: var(--navy);
+            font-size: clamp(2rem, 4vw, 3rem);
+            line-height: 1.1;
+        }
+
+        .guide-subtitle {
+            margin: 0 0 24px;
+            color: var(--blue);
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+
+        .guide-description {
+            margin-bottom: 24px;
+        }
+
+        .guide-features {
+            margin: 24px 0;
+            padding-left: 22px;
+        }
+
+        .guide-features li {
+            margin-bottom: 9px;
+        }
+
+        .guide-price {
+            margin: 28px 0 18px;
+            color: var(--navy);
+            font-size: 2rem;
+            font-weight: 700;
+        }
+
+        .buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 13px 23px;
+            border-radius: 7px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: transform 0.2s ease, opacity 0.2s ease;
+        }
+
+        .button:hover {
+            transform: translateY(-1px);
+            opacity: 0.9;
+        }
+
+        .button-primary {
+            background: var(--gold);
+            color: var(--navy);
+        }
+
+        .button-secondary {
+            border: 2px solid var(--navy);
+            background: var(--white);
+            color: var(--navy);
+        }
+
+        .delivery-note {
+            margin-top: 18px;
+            color: var(--muted);
+            font-size: 0.92rem;
+        }
+
+        .back-link {
+            margin-top: 34px;
+        }
+
+        .back-link a {
+            color: var(--blue);
+            font-weight: 700;
+        }
+
+        footer {
+            padding: 28px 24px;
+            background: var(--navy);
+            color: var(--white);
+            text-align: center;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        @media (max-width: 780px) {
+            .navigation {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .guide-card {
+                grid-template-columns: 1fr;
+                padding: 24px;
+            }
+
+            .guide-cover {
+                max-width: 390px;
+                margin: 0 auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <nav class="navigation">
+            <a class="site-name" href="index.html">Engineering Assurance</a>
+
+            <div class="navigation-links">
+                <a href="index.html">Home</a>
+                <a href="guides.html">Professional Guides</a>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <p class="eyebrow">Professional Guide Series</p>
+
+            <h1>Practical Engineering Guidance</h1>
+
+            <p>
+                Independent professional publications designed to support engineers,
+                maintenance professionals and asset managers in improving reliability,
+                performance and engineering decision-making.
+            </p>
+        </div>
+    </section>
+
+    <main>
+
+        <article class="guide-card">
+
+            <div>
+                <img
+                    class="guide-cover"
+                    src="images/reliability-guide-cover.png"
+                    alt="Cover of Reliability Engineering: A Practical Guide to Improving Asset Performance"
+                >
+            </div>
+
+            <div>
+                <p class="guide-number">Professional Guide 001</p>
+
+                <h2 class="guide-title">Reliability Engineering</h2>
+
+                <p class="guide-subtitle">
+                    A Practical Guide to Improving Asset Performance
+                </p>
+
+                <p class="guide-description">
+                    A practical guide to applying reliability engineering methods
+                    to real assets, systems and engineering organisations.
+                </p>
+
+                <ul class="guide-features">
+                    <li>Reliability engineering principles and frameworks</li>
+                    <li>Engineering data and asset prioritisation</li>
+                    <li>Pareto analysis and root cause analysis</li>
+                    <li>FMEA, fault tree analysis and Weibull analysis</li>
+                    <li>Practical reliability improvement programmes</li>
+                    <li>People, competence and reliability culture</li>
+                    <li>Instant PDF access following purchase</li>
+                </ul>
+
+                <p class="guide-price">£24.99</p>
+
+                <div class="buttons">
+
+                    <a
+                        class="button button-primary"
+                        href="https://payhip.com/REPLACE-WITH-YOUR-PRODUCT-LINK"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Buy the Guide
+                    </a>
+
+                    <!-- Delete this button if you are not offering a preview yet. -->
+                    <a
+                        class="button button-secondary"
+                        href="downloads/reliability-guide-preview.pdf"
+                        target="_blank"
+                    >
+                        Read a Free Preview
+                    </a>
+
+                </div>
+
+                <p class="delivery-note">
+                    Secure payment and digital delivery are provided through Payhip.
+                </p>
+            </div>
+
+        </article>
+
+        <p class="back-link">
+            <a href="index.html">&larr; Return to the main website</a>
+        </p>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Matthew Wright. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
