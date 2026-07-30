@@ -184,7 +184,50 @@
       color: var(--muted);
       font-size: 0.92rem;
     }
+.preview-section {
+  margin-top: 60px;
+  padding: 42px;
+  background: var(--white);
+  border: 1px solid #d9e1ea;
+  border-radius: 18px;
+  box-shadow: 0 14px 34px rgba(6, 26, 51, 0.08);
+}
 
+.preview-title {
+  margin: 0 0 12px;
+  color: var(--navy);
+  font-size: 2.2rem;
+}
+
+.preview-introduction {
+  margin: 0 0 28px;
+  color: var(--muted);
+}
+
+.preview-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.preview-grid a {
+  display: block;
+}
+
+.preview-grid img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid #d9e1ea;
+  border-radius: 6px;
+  box-shadow: 0 8px 20px rgba(6, 26, 51, 0.14);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.preview-grid img:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 28px rgba(6, 26, 51, 0.22);
+}
     .back-link {
       margin-top: 34px;
     }
@@ -220,6 +263,14 @@
         max-width: 390px;
         margin: 0 auto;
       }
+
+      .preview-section {
+  padding: 24px;
+}
+
+.preview-grid {
+  grid-template-columns: 1fr;
+}
     }
   </style>
 </head>
@@ -297,7 +348,41 @@
         </p>
       </div>
     </article>
+<section class="preview-section">
+  <p class="guide-number">Preview</p>
+  <h2 class="preview-title">Take a Look Inside</h2>
 
+  <p class="preview-introduction">
+    View a selection of pages from the guide before purchasing.
+    Click any page to open a larger version.
+  </p>
+
+  <div class="preview-grid">
+    <a href="images/preview-1.png" target="_blank">
+      <img src="images/preview-1.png" alt="Preview page 1">
+    </a>
+
+    <a href="images/preview-2.png" target="_blank">
+      <img src="images/preview-2.png" alt="Preview page 2">
+    </a>
+
+    <a href="images/preview-3.png" target="_blank">
+      <img src="images/preview-3.png" alt="Preview page 3">
+    </a>
+
+    <a href="images/preview-4.png" target="_blank">
+      <img src="images/preview-4.png" alt="Preview page 4">
+    </a>
+
+    <a href="images/preview-5.png" target="_blank">
+      <img src="images/preview-5.png" alt="Preview page 5">
+    </a>
+
+    <a href="images/preview-6.png" target="_blank">
+      <img src="images/preview-6.png" alt="Preview page 6">
+    </a>
+  </div>
+</section>
     <p class="back-link">
       <a href="index.html">&larr; Return to the main website</a>
     </p>
